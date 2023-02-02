@@ -13,17 +13,17 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan('tiny'));
-
-initModels(app);
 app.use(tokenExtractor);
 app.use(errorHandler);
-routerApi(app);
 
+
+
+initModels();
 db.authenticate()
   .then(() => console.log("db synched"))
-  .catch((error) => console.log(error))
+  .catch((error) => console.log(error));
 
-db.sync({ force: false })
+db.sync({ force: true })
   .then(() => console.log('db synched'))
   .catch((error) => console.log(error));
 
@@ -32,5 +32,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1/auth', authRoutes);
+
+routerApi(app);
 
 module.exports = app;

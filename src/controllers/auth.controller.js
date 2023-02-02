@@ -7,7 +7,7 @@ const register = async (req, res) => {
     if (result) {
       res.status(201).json({ message: 'user created' });
     } else {
-      console.log('error');
+      res.status(400).json({message: "Something wrong"});
     }
   } catch (error) {
     res.status(400).json(error.message);
