@@ -5,7 +5,7 @@ const getAllProducts = async (req, res, next) => {
     const products = await ProductServices.getAllProducts();
     res.json(products);
   } catch (error) {
-    throw error;
+    next (error);
     
   }
 };
@@ -18,7 +18,7 @@ const createProduct = async (req, res, next) => {
     const result = await ProductServices.createProduct(newProduct);
     res.status(201).json(result);
   } catch (error) {
-    throw error;
+    next (error);
   }
 };
 

@@ -6,7 +6,7 @@ const getCart = async (req, res, next) => {
     const result = await CartServices.getCart(user);
     res.json(result);
   } catch (error) {
-    throw error;
+    next (error);
   }
 };
 
@@ -18,7 +18,7 @@ const addProductToCart = async (req, res, next) => {
     const result = await CartServices.addProductToCart(fields, user);
     res.json(result);
   } catch (error) {
-    throw error;
+    next (error);
   }
 };
 
@@ -28,7 +28,7 @@ const getProductsInCart = async (req, res, next) => {
     const result = await CartServices.getProductsInCart(user);
     res.json(result);
   } catch (error) {
-    throw error;
+    next (error);
   }
 };
 
