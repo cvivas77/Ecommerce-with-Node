@@ -1,7 +1,7 @@
 const Users = require('../models/users.models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const cart = require('../models/Cart.models');
+const cart = require('../models/cart.models');
 require('dotenv').config();
 
 class AuthServices {
