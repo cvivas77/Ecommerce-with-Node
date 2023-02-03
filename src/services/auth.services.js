@@ -1,15 +1,15 @@
 const Users = require('../models/users.models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const cart = require('../models/cart.models');
+const Cart = require('../models/cart.models');
 require('dotenv').config();
 
 class AuthServices {
   static async register(user) {
     try {
       const result = await Users.create(user);
-      const cartObject = {user_id: result.id};
-      await cart.create(cartObject);
+      const cartObject = {userId: result.id};
+      await Cart.create(cartObject);
       return result;
     } catch (error) {
       throw error;
