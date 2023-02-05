@@ -2,6 +2,8 @@ const db = require('../utils/database');
 const { DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 
+
+
 const Users = db.define('users', {
     id: {type: DataTypes.INTEGER,
         primaryKey: true,
@@ -31,3 +33,22 @@ const Users = db.define('users', {
 );
 
 module.exports = Users;
+
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     register:
+ *       type: object
+ *       properties:
+ *         username:
+ *           type: string
+ *           example: Carolina
+ *         email:
+ *           type: string
+ *           example: clvivas@gmail.com
+ *         password:
+ *           type: string
+ *           example: 123456
+ */

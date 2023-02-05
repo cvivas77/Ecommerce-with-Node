@@ -6,7 +6,13 @@ const register = async (req, res) => {
     const result = await AuthServices.register(user);
     if (result) {
       res.status(201).json({ message: 'user created' });
-    } else {
+      await transporter.sendMail({
+        to: result.email,
+        from: "clvivas77@gmail.com",
+        subject: "<h1>Welcome to Store</h1>",
+        html: "<h1>Enviando Mail</h1>"
+      });
+    } else { 
       res.status(400).json({message: "Something wrong"});
     }
   } catch (error) {
@@ -44,3 +50,4 @@ const login = async (req, res) => {
 };
 
 module.exports = {register, login};
+
