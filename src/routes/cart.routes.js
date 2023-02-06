@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const {addProductToCart,
-      getCart,
-      getProductsInCart} = require('../controllers/cart.controller');
+      getCart, getProductsInCart} = require('../controllers/cart.controller');
 const userExtractor = require('../middlewares/userExtractor.middleware');
 
 const router = Router();
@@ -18,24 +17,56 @@ module.exports = router;
  * @openapi
  * /api/v1/cart/:
  *   get:
- *     sumary: get user cart
+ *     summary: get user cart
  *     tags: [Cart]
  *     responses:
  *       200:
  *         description: OK
  *         content:
- *           application/json
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/getCart'
+ *       400:
+ *         description: Error cart not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                  message:
+ *                    type: string
+ *                    example: Error
+ * /api/v1/cart/products/getProductsInCart:
+ *   get:
+ *     summary: Product in cart
+ *     tags: [Cart]
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/getProductsInCart'
+ * /api/v1/cart/addProductToCart:
+ *   post:
+ *     summary: View of the products in the cart
+ *     tags: [Cart]
+ *     requestBody:
+ *       description: OK
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/addProductInCart'
+ *     responses:
+ *       201:
+ *         description: View of the products in the cart
+ *         content:
+ *           application/json:
  *             schema:
  *               type: object
  *               properties:
  *                 message:
  *                   type: string
- *                   example: Cart
- *                 data:
- *                   type: object
- *                   properties:
- *                     products:
- *                       type: array
- *                     items:
- *                       type: array
+ *                   example: Product in cart
  */

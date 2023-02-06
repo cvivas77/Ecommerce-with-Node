@@ -26,3 +26,45 @@ const Product = db.define('product', {
 );
 
 module.exports = Product;
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     getAllProducts:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 3
+ *         name:
+ *           type: string
+ *           example: Perfume Hubo Boss
+ *         price:
+ *           type: float
+ *           example: 49.99
+ *         availableQty:
+ *           type: integer
+ *           example: 20
+ *         image:
+ *           type: string
+ *           example: image.jpg
+ *         userId:
+ *           type: integer
+ *           example: 4
+ *     createProduct:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           example: One Millon
+ *         price:
+ *           type: float
+ *           example: 50.99
+ *         availableQty:
+ *           type: integer
+ *           example: 100
+ *         image:
+ *           type: string
+ *           example: image.jpg
+ */

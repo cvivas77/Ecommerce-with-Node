@@ -15,7 +15,7 @@ module.exports = router
  * @openapi
  * /api/v1/auth/register:
  *   post:
- *     sumary: create a new user into aplication
+ *     summary: create a new user into aplication
  *     tags: [Auth]
  *     requestBody:
  *       description: Required fields to create a new user
@@ -47,15 +47,15 @@ module.exports = router
  *                   example: Validation error
  * /api/v1/auth/login:
  *   post:
- *     sumary: login into app
+ *     summary: login into app
  *     tags: [Auth]
  *     requestBody:
  *       description: Required login into app
- *       required: true
+ *       require: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/shemas/login'
+ *             $ref: '#/components/schemas/login'
  *     responses:
  *       200:
  *         description: OK

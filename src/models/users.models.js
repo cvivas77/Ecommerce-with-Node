@@ -51,4 +51,30 @@ module.exports = Users;
  *         password:
  *           type: string
  *           example: 123456
+ *     login:
+ *       type: object
+ *       properties:
+ *         email:
+ *           type: string
+ *           example: gato@gmail.com
+ *         password:
+ *           type: string
+ *           example: 123456
+ *     loginResponse:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: interger
+ *           example: 1
+ *         username:
+ *           type: string
+ *           example: gato@gmail.com
+ *         token:
+ *           type: string
+ *           example: $2b$10$6vl67iAqBvOmMQoDHmtvJeauJdTWlEylj0h1lFP4M2LecG3T41ahq
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       schema: bearer
+ *       bearerFormat: JWT
  */

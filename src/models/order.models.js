@@ -21,3 +21,21 @@ const Order = db.define("order", {
 );
 
 module.exports = Order;
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     gerOrder:
+ *       type: object
+ *       properties:
+ *         id:
+ *          type: integer
+ *          example: 4
+ *         totalPrice:
+ *           type: float
+ *           example: 71.25
+ *         userId:
+ *           type: integer
+ *           example: 9
+ */

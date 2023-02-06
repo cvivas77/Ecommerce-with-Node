@@ -1,6 +1,7 @@
 const Products = require('../models/products.models');
 const { Op } = require('sequelize');
 const users = require('../models/users.models');
+const productInOrder = require('../models/productInOrder.models');
 
 
 
@@ -8,7 +9,7 @@ class ProductServices {
   static async getAllProducts() {
     try {
       const products = Products.findAll({where: {availableQty: {[Op.gt]: 0}},
-                                        attributes: {exclude: ['user_id']},
+                                        attributes: {exclude: ['userId']},
                                         include: {model: users,
                                                   as: 'user',
                                         attributes: {exclude: ['password', 'email']}},
@@ -27,6 +28,7 @@ class ProductServices {
       throw error;
     }
   }
+ 
 }
 
 module.exports = ProductServices;
